@@ -1,0 +1,12 @@
+Species,FisheryGroup,Genus,SpeciesName,SpeciesLabelShort,SpeciesLabelLong
+Albacoretuna,Tuna,Thunnus,Thunnus alalunga,T_Alba,Albacore Tuna
+Skipjacktuna,Tuna,Katsuwonus,Katsuwonus pelamis,T_Skip,Skipjack Tuna
+Yellowfintuna,Tuna,Thunnus,Thunnus albacares,T_Y-Fin,Yellowfin Tuna
+Bigeyetuna,Tuna,Thunnus,Thunnus obesus,T_Bigeye,Bigeye Tuna
+Kawakawa,Tuna,Euthynnus affinis,Euthynnus affinis,T_Kawa,Kawakawa Tuna
+Swordfish,Billfishes,Xiphias,Xiphias gladius,B_Sword,Swordfish
+Bluemarlin,Billfishes,Makaira,Makaira mazara,B_BluMar,Blue marlin
+Blackmarlin,Billfishes,Istiompax,Istiompax indica,B_BlkMar,Black marlin
+Stripedmarlin,Billfishes,Kajikia,Kajikia audax,B_StrpMar,Striped marlin
+Shortnosespearfish,Billfishes,Tetrapturus,Tetrapturus angustirostris,B_ShSpr,Shortnose spearfish
+Sailfish,Billfishes,Istiophorus,Istiophorus platypterus,B_Sail,Sailfish

@@ -69,7 +69,8 @@ HI_Landings.reorg[,"AdjPricePerLb"] <- HI_Landings.reorg[,"PricePerLb"]*HI_Landi
 
 
 # Change NA to -9999 in order to get it into Access (better way?)
-HI_Landings.reorg[is.na(HI_Landings.reorg)] <- -99999
+# now bypassing Access -> don't need this anymore....
+#HI_Landings.reorg[is.na(HI_Landings.reorg)] <- -99999
 
 write.csv(HI_Landings.reorg,file=paste(path.procdata,"Hawai_Landings_Data_Processed.csv",sep="/"),row.names=FALSE)
 write.csv(US_Infl,file=paste(path.procdata,"US_Inflation_Adj_Processed.csv",sep="/"),row.names=FALSE)
