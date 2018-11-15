@@ -15,6 +15,8 @@ Or you can just access the app at LINK.
 #### Data
 This contains the raw data files downloaded from LINK, and the code used to
 process the raw data into a compact format to use for the app.
+It also includes a lookup file with reference info for each of the 
+species labels in the raw data (e.g. genus, fishery group)
 
 
 #### Function Testing
