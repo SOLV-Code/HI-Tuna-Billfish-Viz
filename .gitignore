@@ -1,9 +1,30 @@
-# History files
+# Session Data & History files
+.Rproj.user
+.RData
 .Rhistory
 .Rapp.history
+.RDataTmp
 
-# Session Data files
-.RData
+# shortcut files
+.exe.lnk  
+.lnk
+
+# Ouput files
+*.pdf
+*.jpg
+*.tiff
+*.doc
+*.docx
+
+
+# other files
+*.zip
+
+# Folders
+/OUTPUT/
+
+
+# REST IS FROM DEFAULT .gitignore for R
 
 # Example code in package build process
 *-Ex.R
@@ -31,6 +52,3 @@ vignettes/*.pdf
 # Temporary files created by R markdown
 *.utf8.md
 *.knit.md
-
-# Shiny token, see https://shiny.rstudio.com/articles/shinyapps.html
-rsconnect/
