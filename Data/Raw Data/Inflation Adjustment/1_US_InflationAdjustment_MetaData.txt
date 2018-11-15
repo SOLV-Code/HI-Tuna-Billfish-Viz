@@ -1,0 +1,11 @@
+DATA SET: CPI INFLATION ADJUSTMENTS
+AGENCY: US Dept. of Labor - Bureau of Labor Statistics
+SOURCE: http://www.bls.gov/data/inflation_calculator.htm
+RETRIEVED: 21 October 2016
+
+Notes:
+
+- "The CPI inflation calculator uses the average Consumer Price Index for a given calendar year. 
+This data represents changes in prices of all goods and services purchased for consumption 
+by urban households. This index value has been calculated every year since 1913. 
+For the current year, the latest monthly index value is used." 

@@ -1,0 +1,31 @@
+DATA SET: Hawaii Reported Landings
+AGENCY: NOAA Pacific Islands Fisheries Science Center
+SOURCE: https://www.pifsc.noaa.gov/wpacfin/hi/dar/Pages/hi_data_3.php
+RETRIEVED: 21 October 2016
+
+Notes:
+- Using annual totals for this illustration, but there are seasonal fluctuations in the data
+
+- "There may be some discepancies between pounds caught and pounds sold values from 2000 onward,
+ because the pounds caught is from the Longline Logbooks, Dealer's Reports and 
+ Fisherman's Catch Reports data. Pounds sold, value and price/pound is 
+ from the Dealer's Reports." 
+ 
+Data clean-up step
+- Can access only 1 year at time (choose "ANNUAL")
+- save web table as xls file
+- open xls file, delete title row and blank row, then save as csv
+
+- Could try to automate the downloads, but department websites tend to prevent any kind of scraping
+
+- Could set up the data processing script to read xls files, but the available packages 
+for this require other software to be installed (Perl, Java). For options, check
+https://www.r-bloggers.com/read-excel-files-from-r/ and
+http://stackoverflow.com/questions/6099243/read-an-excel-file-directly-from-a-r-script
+
+- In this data set, there will only be one extra xls file added each year, so the
+effort to automate this step is not worth it.
+
+
+
+
