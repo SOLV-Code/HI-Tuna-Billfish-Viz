@@ -141,8 +141,8 @@ y.vals <- c(18,17.5,16,14.5,13)
 text(x.vals,y.vals[1],c("Label","Name", "Species"),font=2,adj=c(0,0))
 abline(h=y.vals[2])
 text(x.vals[1],y.vals[3:5],species.lookup[labels.idx,"SpeciesLabelShort"],c(0,0))
-text(x.vals[2],y.vals[3:5],species.lookup[labels.idx,"Species Label Long"],c(0,0))
-text(x.vals[3],y.vals[3:5],species.lookup[labels.idx,"Species Name"],c(0,0),font=3)
+text(x.vals[2],y.vals[3:5],species.lookup[labels.idx,"SpeciesLabelLong"],c(0,0))
+text(x.vals[3],y.vals[3:5],species.lookup[labels.idx,"SpeciesName"],c(0,0),font=3)
 
 
 dev.off()

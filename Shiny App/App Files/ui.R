@@ -95,20 +95,21 @@ fluidPage(
 		selectizeInput("species2.3species", "Species 2 ", choices = species.list, selected = "Bigeye Tuna"),
 		selectizeInput("species3.3species", "Species 3", choices = species.list, selected = "Yellowfin Tuna"),		
 		selectizeInput("var.3species", "Variable", choices = var.list, selected = "Caught"),
-		sliderInput("yr.range.1species", "Years", sep="",min = 1948, max = 2020, value = c(1948,2020))
+		sliderInput("yr.range.3species", "Years", sep="",min = 1948, max = 2020, value = c(1948,2020)),
+		checkboxInput("fancy.percrank.3species", "Fancy Percent Rank", TRUE)
 	) # end sidebar
   ,
    
 
      mainPanel(			
 	     
-		 plotOutput("fillerplot",width = "80%", height = "600px")
+		 
 	 
-		# tabsetPanel(type = "tabs",
-         #        tabPanel("Time Series",  plotOutput("fillerplot",width = "80%", height = "600px")),
-			#	 tabPanel("Composition", plotOutput("fillerplot",width = "80%", height = "600px")),
-			#	 tabPanel("Composition", plotOutput("fillerplot",width = "80%", height = "600px"))
-			#	  )
+		tabsetPanel(type = "tabs",
+                tabPanel("Time Series",  plotOutput("tsplot.3species",width = "100%", height = "600px")),
+				tabPanel("Percent Rank",  plotOutput("percrankplot.3species",width = "100%", height = "600px")),
+				tabPanel("Composition", plotOutput("compositionplot.3species",width = "80%", height = "600px"))
+				  )
 	 
 		
 	   
@@ -132,7 +133,7 @@ fluidPage(
 		selectizeInput("var1.allspecies", "Variable 1", choices = var.list, selected = "Caught"),
 		selectizeInput("var2.allspecies", "Variable 2", choices = var.list, selected = "PricePerLb"),
 		sliderInput("yr.range.allspecies", "Years", sep="",min = 1948, max = 2020, value = c(1948,2020)),
-		selectizeInput("species1.allspecies", "Species", choices = species.list, selected = species.list[1])
+		selectizeInput("species1.allspecies", "Species to highlight", choices = species.list, selected = species.list[1])
 		
 					  
 		) # end sidebar
@@ -141,7 +142,7 @@ fluidPage(
 
      mainPanel(			
 	     
-			# plotOutput("fillerplot",width = "80%", height = "600px")
+		 plotOutput("fillerplot",width = "80%", height = "600px")
 	 
 		# tabsetPanel(type = "tabs",
         #          tabPanel("Ranking", plotOutput("fillerplot",width = "100%", height = "600px")),

@@ -5,6 +5,6 @@ account: solv-code
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 576540
-bundleId: 1704885
+bundleId: 1705148
 url: https://solv-code.shinyapps.io/hi_tunabillfishdataviz/
-when: 1542389357.12009
+when: 1542398133.85963
