@@ -36,7 +36,7 @@ write.csv(dashboard.in,file=paste(path.procdata,"Hawai_Landings_DashboardInput.c
 
 # put it into the app folder
 write.csv(dashboard.in,file=paste(path.appdata,"Hawai_Landings_DashboardInput.csv",sep="/"),row.names=FALSE)
-
+write.csv(US_Infl, file=paste(path.appdata,"US_Inflation_Adj_Processed.csv",sep="/"),row.names=FALSE)
 
 
 
