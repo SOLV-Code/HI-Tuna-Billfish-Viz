@@ -7,16 +7,16 @@ print("-------------------------------------------------------------------------
 print("STARTING SCRIPT 3")
 
 # read in latest version of the data
-# commented out, because only need to run if any database changes
-# NOTE: this step requires 32-bit R (due to RODBC package)
-# source("1_GetData_Script.R")
+source("1_GetData_Script.R")
 
 # check the data
-#print(HI_Landings_Data1)
+print(head(HI_Landings_Data1))
 
 # read in the latest version of all the functions
-fn.list <- dir("Functions")
-for(fn in fn.list){source(paste("Functions",fn,sep="/"))}
+fn.list <- dir("../Shiny App/Functions")
+for(fn in fn.list){print(paste("sourcing", fn)) ; source(paste("../Shiny App/Functions",fn,sep="/"))}
+
+
 
 
 # do some summaries of the data
@@ -31,40 +31,40 @@ dimnames(HI_Landings_Data1)[[2]]
 species.list <- sort(unique(HI_Landings_Data1[,"Species"]))
 print(species.list)
 
-species.info.labels <- c("Species","Fishery Group", "Genus" ,"Species Name","Species Label Short","Species Label Long")
+species.info.labels <- c("Species","FisheryGroup", "Genus" ,"SpeciesName","SpeciesLabelShort","SpeciesLabelLong")
 species.lookup <- HI_Landings_Data1[ HI_Landings_Data1[,"Year"]==min(data.yrs) ,species.info.labels ]      
 
 # extract data for 3 species of genus Thunnus ("True Tunas"), then reorganize into a matrix for each variable
-real.tuna.list <- sort(species.lookup[species.lookup[,"Genus"]=="Thunnus"& !is.na(species.lookup[,"Genus"]),"Species Label Short"])
-real.tuna.data <- HI_Landings_Data1[ HI_Landings_Data1[,"Species Label Short"] %in% real.tuna.list,]
+real.tuna.list <- sort(species.lookup[species.lookup[,"Genus"]=="Thunnus"& !is.na(species.lookup[,"Genus"]),"SpeciesLabelShort"])
+real.tuna.data <- HI_Landings_Data1[ HI_Landings_Data1[,"SpeciesLabelShort"] %in% real.tuna.list,]
 
 # caught
-real.tuna.mat.caught  <- rbind(real.tuna.data[real.tuna.data[,"Species Label Short"]== real.tuna.list[1],"Caught"],
-					real.tuna.data[real.tuna.data[,"Species Label Short"]== real.tuna.list[2],"Caught"],
-					real.tuna.data[real.tuna.data[,"Species Label Short"]== real.tuna.list[3],"Caught"])
+real.tuna.mat.caught  <- rbind(real.tuna.data[real.tuna.data[,"SpeciesLabelShort"]== real.tuna.list[1],"Caught"],
+					real.tuna.data[real.tuna.data[,"SpeciesLabelShort"]== real.tuna.list[2],"Caught"],
+					real.tuna.data[real.tuna.data[,"SpeciesLabelShort"]== real.tuna.list[3],"Caught"])
 dimnames(real.tuna.mat.caught) <- list(real.tuna.list,data.yrs) 
 print(real.tuna.mat.caught)
 
 # sold
-real.tuna.mat.sold  <- rbind(real.tuna.data[real.tuna.data[,"Species Label Short"]== real.tuna.list[1],"Sold"],
-					real.tuna.data[real.tuna.data[,"Species Label Short"]== real.tuna.list[2],"Sold"],
-					real.tuna.data[real.tuna.data[,"Species Label Short"]== real.tuna.list[3],"Sold"])
+real.tuna.mat.sold  <- rbind(real.tuna.data[real.tuna.data[,"SpeciesLabelShort"]== real.tuna.list[1],"Sold"],
+					real.tuna.data[real.tuna.data[,"SpeciesLabelShort"]== real.tuna.list[2],"Sold"],
+					real.tuna.data[real.tuna.data[,"SpeciesLabelShort"]== real.tuna.list[3],"Sold"])
 dimnames(real.tuna.mat.sold) <- list(real.tuna.list,data.yrs) 
 print(real.tuna.mat.sold)
 
 
 # Value
-real.tuna.mat.value  <- rbind(real.tuna.data[real.tuna.data[,"Species Label Short"]== real.tuna.list[1],"Value"],
-					real.tuna.data[real.tuna.data[,"Species Label Short"]== real.tuna.list[2],"Value"],
-					real.tuna.data[real.tuna.data[,"Species Label Short"]== real.tuna.list[3],"Value"])
+real.tuna.mat.value  <- rbind(real.tuna.data[real.tuna.data[,"SpeciesLabelShort"]== real.tuna.list[1],"Value"],
+					real.tuna.data[real.tuna.data[,"SpeciesLabelShort"]== real.tuna.list[2],"Value"],
+					real.tuna.data[real.tuna.data[,"SpeciesLabelShort"]== real.tuna.list[3],"Value"])
 dimnames(real.tuna.mat.value) <- list(real.tuna.list,data.yrs) 
 print(real.tuna.mat.value)
 
 
 # Adjusted Value
-real.tuna.mat.adjvalue  <- rbind(real.tuna.data[real.tuna.data[,"Species Label Short"]== real.tuna.list[1],"AdjValue"],
-					real.tuna.data[real.tuna.data[,"Species Label Short"]== real.tuna.list[2],"AdjValue"],
-					real.tuna.data[real.tuna.data[,"Species Label Short"]== real.tuna.list[3],"AdjValue"])
+real.tuna.mat.adjvalue  <- rbind(real.tuna.data[real.tuna.data[,"SpeciesLabelShort"]== real.tuna.list[1],"AdjValue"],
+					real.tuna.data[real.tuna.data[,"SpeciesLabelShort"]== real.tuna.list[2],"AdjValue"],
+					real.tuna.data[real.tuna.data[,"SpeciesLabelShort"]== real.tuna.list[3],"AdjValue"])
 dimnames(real.tuna.mat.adjvalue) <- list(real.tuna.list,data.yrs) 
 print(real.tuna.mat.adjvalue)
 
@@ -90,6 +90,10 @@ greyfish_sbplot(y.mat=real.tuna.mat.caught,perc=TRUE,
 # ----------------------------------------
 
 file.type.list <- c("pdf","jpeg","eps")
+
+
+if(!dir.exists("OUTPUT/Examples")){dir.create("OUTPUT/Examples")}
+if(!dir.exists("OUTPUT/Examples/Changing Composition Examples")){dir.create("OUTPUT/Examples/Changing Composition Examples")}
 
 
 
@@ -131,12 +135,12 @@ title(main= "Changing Composition of Tuna Landings and Value",col.main="darkblue
 # add a table with species info
 
 plot(1:20,1:20,axes=FALSE,xlab="",ylab="",type="n")
-labels.idx <- species.lookup[,"Species Label Short"] %in% real.tuna.list
+labels.idx <- species.lookup[,"SpeciesLabelShort"] %in% real.tuna.list
 x.vals <- c(1,5.5,12)
 y.vals <- c(18,17.5,16,14.5,13)
 text(x.vals,y.vals[1],c("Label","Name", "Species"),font=2,adj=c(0,0))
 abline(h=y.vals[2])
-text(x.vals[1],y.vals[3:5],species.lookup[labels.idx,"Species Label Short"],c(0,0))
+text(x.vals[1],y.vals[3:5],species.lookup[labels.idx,"SpeciesLabelShort"],c(0,0))
 text(x.vals[2],y.vals[3:5],species.lookup[labels.idx,"Species Label Long"],c(0,0))
 text(x.vals[3],y.vals[3:5],species.lookup[labels.idx,"Species Name"],c(0,0),font=3)
 

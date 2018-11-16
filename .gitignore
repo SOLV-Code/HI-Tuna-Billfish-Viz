@@ -15,7 +15,9 @@
 *.tiff
 *.doc
 *.docx
-
+*.jpeg
+*.eps
+*.png
 
 # other files
 *.zip
