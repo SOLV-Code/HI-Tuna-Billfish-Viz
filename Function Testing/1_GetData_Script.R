@@ -4,8 +4,8 @@
 # ----------------------------------------------------------------------
 # using the version saved in the Shiny Appp folder
 
-HI_Landings_Data1 <- read.csv("../Shiny App/Data/Hawai_Landings_DashboardInput.csv",stringsAsFactors=FALSE)
-US_Infl <- read.csv("../Shiny App/Data/US_Inflation_Adj_Processed.csv",stringsAsFactors=FALSE)
+HI_Landings_Data1 <- read.csv("../Shiny App/App Files/Data/Hawai_Landings_DashboardInput.csv",stringsAsFactors=FALSE)
+US_Infl <- read.csv("../Shiny App/App Files/Data/US_Inflation_Adj_Processed.csv",stringsAsFactors=FALSE)
 
 
 

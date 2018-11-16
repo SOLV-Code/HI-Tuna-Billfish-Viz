@@ -12,6 +12,9 @@ Shiny app. Once you fork or download this repository (LINK), you can run the app
 locally using the script *1_Run_Locally.R*. 
 Or you can just access the app at LINK.
 
+*Note*: Not all plot variations have been incorporated into the App yet.
+The full set is included in the pdf handouts at LINK.
+
 #### Data
 This contains the raw data files downloaded from LINK, and the code used to
 process the raw data into a compact format to use for the app.
