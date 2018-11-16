@@ -19,9 +19,9 @@ load_or_install(c("rsconnect","shiny","shinydashboard","shinyjqui","shiny","shin
 
 
 # run the app
-rsconnect::deployApp(appDir="App Files", appTitle="forecastR")
+rsconnect::deployApp(appDir="App Files", appTitle="HI_Tuna&BillfishDataViz")
 
-rsconnect::showLogs(appPath="App Files", appFile="forecastR")
+rsconnect::showLogs(appPath="App Files", appFile="HI_Tuna&BillfishDataViz")
 
 
 
